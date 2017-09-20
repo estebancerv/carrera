@@ -29,7 +29,7 @@ int main()
 		for (int i=0;i<4;i++){
 			// This will ensure a really randomized number by help of time.
 			xRan=rand()%100+1;	// Randomizing the number between 1-15.
-			if (xRan<17){
+			if (xRan<15){
 				pista[i]=1;
 			}
 			else {
@@ -56,6 +56,10 @@ int main()
 		for (int j = 0; j<4; j++){
 			pist[9][j+1]=pista[j];
 		}
+		if (pist[x+1][y]==1){
+			cout << "PERDISTE!!";
+			return 0;
+		}
 		pist[x][y]='V';
 	}
 	
@@ -68,7 +72,9 @@ int main()
 DWORD WINAPI hilo(LPVOID LPARAM)
 {
 	while (true){
-		switch(getch()) {
+		int d;
+		d=getch();
+		switch(d) {
 		case 119: // key up
 			x--;
 			cout << "arriba";
@@ -90,3 +96,4 @@ DWORD WINAPI hilo(LPVOID LPARAM)
 	
 	return 0;
 }
+
